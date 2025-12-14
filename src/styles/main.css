@@ -330,12 +330,13 @@ html {
 
 .project-image {
   width: 100%;
-  aspect-ratio: 1 / 1;
+  height: 180px;          /* key change */
   object-fit: cover;
-  border-radius: 14px;
+  border-radius: 12px;
   border: 1px solid var(--line);
   background: var(--card);
 }
+
   /* Navigation */
   .nav a {
 	position: relative;
@@ -433,6 +434,22 @@ html {
   .section {
     margin-top: 56px;
   }
+
+  @media (max-width: 768px) {
+    .project-image {
+      height: 96px;
+      border-radius: 10px;
+      filter: contrast(1.05) brightness(0.9);
+    }
+  }
+  .project {
+    padding-top: 16px;
+  }
+  
+  .project-image {
+    filter: contrast(1.05) brightness(0.95);
+  }
+  
 }
 .project-image {
   pointer-events: none;
