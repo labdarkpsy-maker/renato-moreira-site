@@ -5,6 +5,13 @@ const {
   title = "Renato Moreira",
   description = "Renato Moreira – Lisbon-born, Porto-based. Music producer, live performer, sound & AV specialist."
 } = Astro.props;
+// current page path (e.g. /music, /teaching, /timeline)
+const path = Astro.url.pathname;
+
+// helper to check if a nav link is active
+const isActive = (href) =>
+  path === href || path.startsWith(href + "/");
+---
 ---
 
 <!doctype html>
@@ -21,13 +28,13 @@ const {
       <div class="wrap header-inner">
         <a class="brand" href="/">Renato Moreira</a>
         <nav class="nav">
-          <a href="/about">About</a>
-          <a href="/music">Music</a>
-          <a href="/technical-av">Technical & AV</a>
-          <a href="/teaching">Teaching</a>
-          <a href="/timeline">Timeline</a>
-          <a href="/contact">Contact</a>
-        </nav>
+          <a class={isActive("/about") ? "active" : ""} href="/about">About</a>
+          <a class={isActive("/music") ? "active" : ""} href="/music">Music</a>
+          <a class={isActive("/technical-av") ? "active" : ""} href="/technical-av">Technical & AV</a>
+          <a class={isActive("/teaching") ? "active" : ""} href="/teaching">Teaching</a>
+          <a class={isActive("/timeline") ? "active" : ""} href="/timeline">Timeline</a>
+          <a class={isActive("/contact") ? "active" : ""} href="/contact">Contact</a>
+        </nav>        
       </div>
     </header>
 
